@@ -16,3 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('products', 'ProductController@index');
+Route::get('products/create', 'ProductController@create');
+Route::get('products/edit/{id}', 'ProductController@edit');//لازم يرسل id
+Route::get('products/delete/{id}', 'ProductController@destroy');
+Route::get('products/update/{id}', 'ProductController@update');//عادي يرسل ولا ما يرسل id
+Route::get('products/store', 'ProductController@store');
+
+
+
+
+
