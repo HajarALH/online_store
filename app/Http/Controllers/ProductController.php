@@ -45,14 +45,11 @@ class ProductController extends Controller
             //'image_path'=>'required|mimes:jpg'
              
          //]);
-
          $record= new Product;
          $record->name= $request->name;
+         $record->name_ar= $request->name_ar;
          $record->price= $request->price;
          $record->categroy_id= $request->categroy_id;
-        
-        
-
         //للرفع الصور و تخزينها
         if($request->hasFile('image'))
         {
@@ -65,7 +62,6 @@ class ProductController extends Controller
         //$image= $request->image_path;
         //$imageFileName= 'uploads/products/'.time() . '.' . $image->extension();
         //$image->move(public_path('uploads/products/'), $imageFileName);
-
         $record->save();
         return "recored added succussfully";
     }
@@ -116,6 +112,7 @@ class ProductController extends Controller
 
          $record=  Product::findOrfail($id);
          $record->name= $request->name;
+         $record->name_ar= $request->name_ar;
          $record->price= $request->price;
          $record->categroy_id= $request->categroy_id;
         
@@ -139,7 +136,7 @@ class ProductController extends Controller
         
     }
 
-    /**
+    /** 1
      * Remove the specified resource from storage.
      *
      * @param  int  $id

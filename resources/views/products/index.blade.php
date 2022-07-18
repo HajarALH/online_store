@@ -11,13 +11,13 @@
     </style>
 </head>
 <body>
-    <h1> {{__('Products List')}} </h1>
+    <h1> {{ __('Products List') }} </h1>
     <div class="container">
         <div class="row">
             @forelse($products as $product)
             <div class="col-md-3">
                 <div class="card">
-                <div class="card-header"> {{$product->name}} </div>
+                <div class="card-header"> {{app()-> isLocale('ar') ? $product->name_ar : $product->name }} </div>
                 <div class="card-body">
                     <img src="{{ asset($product-> image_path) }}" style="max-width:100%">
                 </div>
